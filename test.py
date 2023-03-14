@@ -1,13 +1,16 @@
-from miniKeras import network
-from miniKeras import optimizers
-l = network.Sequential(
+# from miniKeras import network
+# from miniKeras import optimizers
+# from miniKeras import layers
+
+import miniKeras as mk
+l = mk.Sequential(
     [
-        network.layers.Dense(3, name='layer1'),
-        network.layers.Dense(2, name='layer2'),
-        network.layers.Dense(1, name='layer3'),
+        mk.layers.Dense(3, name='layer1'),
+        mk.layers.Dense(2, name='layer2'),
+        mk.layers.Dense(1, name='layer3'),
     ]
 )
-opt = optimizers.SGD(learning_rate=0.1)
+opt = mk.optimizers.SGD(learning_rate=0.1)
 l.Compile(optimizer=opt)
 x = [1,2]
 y=[1]

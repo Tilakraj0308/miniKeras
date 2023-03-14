@@ -1,10 +1,6 @@
 import math
 class Variable:
 
-    '''The basic unit of comptutation in this neural network structure.
-    Every unit has it's own back function which does a single step of backpropagation.
-    A bunch of these units constitute a single neuron and perform a chain of backpropagation.'''
-
     def __init__(self, val=0, name='', trainable=True, op='', children=()):
         self.val = val
         self.trainable = trainable
