@@ -10,7 +10,9 @@ l = mk.Sequential(
         mk.layers.Dense(1, name='layer3'),
     ]
 )
-opt = mk.optimizers.SGD(learning_rate=0.1)
+# opt = mk.optimizers.SGD()
+opt = mk.optimizers.Adagrad()
+# opt = mk.optimizers.RMSprop(learning_rate=0.1)
 l.Compile(optimizer=opt)
 x = [1,2]
 y=[1]

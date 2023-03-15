@@ -1,4 +1,7 @@
 from miniKeras.engine.miniKeras_units.unit import Variable
+from miniKeras.optimizers import SGD
+from miniKeras.optimizers import RMSprop
+from miniKeras.optimizers import Adagrad
 
 class Sequential:
     
