@@ -11,8 +11,11 @@ l = mk.Sequential(
     ]
 )
 # opt = mk.optimizers.SGD()
-opt = mk.optimizers.Adagrad()
-# opt = mk.optimizers.RMSprop(learning_rate=0.1)
+# opt = mk.optimizers.Adagrad()
+# opt = mk.optimizers.RMSprop()
+opt = mk.optimizers.Adam()
+
+
 l.Compile(optimizer=opt)
 x = [1,2]
 y=[1]
