@@ -10,9 +10,6 @@ Capable of building a dense neural network and carrying out internal backpropaga
 ```bash
 # To install and use it in your project
 pip install miniKeras
-
-# To build the package
-python3 setup.py bdist_wheel sdist
 ```
 
 ### Example of a Variable:
