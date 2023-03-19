@@ -13,7 +13,8 @@ l = mk.Sequential(
 # opt = mk.optimizers.SGD()
 # opt = mk.optimizers.Adagrad()
 # opt = mk.optimizers.RMSprop()
-opt = mk.optimizers.Adam()
+# opt = mk.optimizers.Adam()
+opt = mk.optimizers.AdamW()
 
 
 l.Compile(optimizer=opt)

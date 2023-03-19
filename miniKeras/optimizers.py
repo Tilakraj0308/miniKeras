@@ -64,3 +64,26 @@ class Adam:
             p.val += (-self.learning_rate*self.momentum)/(np.sqrt(self.vel)+self.epsilon)
             self.t += 1
 
+class AdamW:
+    def __init__(self, learning_rate=0.001, beta_1=0.9, beta_2=0.99, epsilon=1e-07, decay_rate=0.004):
+        self.learning_rate = learning_rate
+        self.beta_1 = beta_1
+        self.beta_2 = beta_2
+        self.epsilon = epsilon
+        self.momentum = 0.0
+        self.vel = 0.0
+        self.t = 1
+        self.decay_rate = decay_rate
+
+    def __call__(self, param):
+        #decaying learning_rate over time
+        self.learning_rate *= (1-self.decay_rate)
+        for p in param:
+            self.momentum = self.beta_1*self.momentum+(1-self.beta_1)*p.grad
+            self.vel = self.beta_2*self.vel+(1-self.beta_2)*(p.grad**2)
+            #update momentum and vel
+            self.momentum /= 1-self.beta_1**self.t
+            self.vel /= 1-self.beta_2**self.t
+            p.val += (-self.learning_rate*self.momentum)/(np.sqrt(self.vel)+self.epsilon)
+            # print(self.learning_rate)
+            self.t += 1
